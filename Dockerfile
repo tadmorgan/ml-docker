@@ -4,7 +4,7 @@ ARG cudnn_version=7
 FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04
 # Pin CuDNN 
 
-RUN apt-get update && apt-get install -y --allow-downgrades --no-install-recommends \ 
+RUN apt-get update && apt-get install -y --allow-downgrades --no-install-recommends  --allow-change-held-packages\ 
     libcudnn7=7.6.5.32-1+cuda10.2 \
     libcudnn7-dev=7.6.5.32-1+cuda10.2
 RUN apt-mark hold libcudnn7 libcudnn7-dev
