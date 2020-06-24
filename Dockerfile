@@ -3,7 +3,7 @@ ARG cudnn_version=7.4
 #FROM nvidia/cuda:${cuda_version}-cudnn${cudnn_version}-devel
 #FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04
 #FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
-FROM tensorflow/tensorflow:1.14.0-gpu-py3-jupyter
+FROM tensorflow/tensorflow:1.15.2-gpu-py3-jupyter
 # Pin CuDNN 
 
 RUN apt-get update 
