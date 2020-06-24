@@ -39,7 +39,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libopenblas-dev
 
 RUN apt-get install -y --no-install-recommends \
-    libgdk-pixbuf2.0-dev libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev \
+    libgdk-pixbuf2.0-dev libjpeg8-dev libtiff5-dev libjasper-dev libpng-dev \
     libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libgtk2.0-dev \
     liblapacke-dev checkinstall
 
