@@ -33,7 +33,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       python3-tk \
       libcublas-dev
 
-RUN pip install --upgrade pip
+RUN pip3 install --upgrade pip
 RUN add-apt-repository 'deb http://security.ubuntu.com/ubuntu xenial-security main'
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
