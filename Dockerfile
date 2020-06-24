@@ -32,7 +32,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       python3-dev \
       python3-setuptools \
       python3-wheel \
-      python3-tk
+      python3-tk \
+      libcublas-dev \
+      libcublas9.1
 
 RUN add-apt-repository 'deb http://security.ubuntu.com/ubuntu xenial-security main'
 
