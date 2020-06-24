@@ -68,7 +68,7 @@ RUN pip3 install \
 
 RUN pip3 install \
       wheel \
-      bcolz \RUN apt-mark hold libcudnn7 libcudnn7-dev
+      bcolz \
       h5py \
       matplotlib \
       mkl \
