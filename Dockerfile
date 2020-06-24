@@ -1,10 +1,12 @@
-ARG cuda_version=10.0
+ARG cuda_version=10.2
 ARG cudnn_version=7
 #FROM nvidia/cuda:${cuda_version}-cudnn${cudnn_version}-devel
 FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04
 # Pin CuDNN 
 
-RUN apt-get update 
+RUN apt-get update && apt-get install -y --allow-downgrades --no-install-recommends \ 
+    libcudnn7=7.6.5.32-1+cuda10.2 \
+    libcudnn7-dev=7.6.5.32-1+cuda10.2
 RUN apt-mark hold libcudnn7 libcudnn7-dev
 
 # Supress warnings about missing front-end. As recommended at:
