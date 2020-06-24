@@ -1,7 +1,8 @@
 ARG cuda_version=10.2
 ARG cudnn_version=7
 #FROM nvidia/cuda:${cuda_version}-cudnn${cudnn_version}-devel
-FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04
+#FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04
+FROM nvidia/cuda:10.2-cudnn7-runtime-ubuntu18.04
 # Pin CuDNN 
 
 RUN apt-get update && apt-get install -y --allow-downgrades --no-install-recommends  --allow-change-held-packages\ 
