@@ -1,13 +1,13 @@
-ARG cuda_version=10.2
-ARG cudnn_version=8
+ARG cuda_version=9.0
+ARG cudnn_version=7
 #FROM nvidia/cuda:${cuda_version}-cudnn${cudnn_version}-devel
-FROM nvidia/cuda:10.2-base-ubuntu18.04
+FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 # Pin CuDNN 
 
 RUN apt-get update && apt-get install -y --allow-downgrades --no-install-recommends \ 
-    libcudnn8=8.0.0.180-1+cuda10.2 \
-    libcudnn8-dev=8.0.0.180-1+cuda10.2
-RUN apt-mark hold libcudnn8 libcudnn8-dev
+    libcudnn7 \
+    libcudnn7-dev
+RUN apt-mark hold libcudnn7 libcudnn7-dev
 
 # Supress warnings about missing front-end. As recommended at:
 # http://stackoverflow.com/questions/22466255/is-it-possibe-to-answer-dialog-questions-when-installing-under-docker
