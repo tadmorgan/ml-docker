@@ -3,6 +3,7 @@ ARG cudnn_version=8
 #FROM nvidia/cuda:${cuda_version}-cudnn${cudnn_version}-devel
 FROM nvidia/cuda:10.2-base-ubuntu18.04
 # Pin CuDNN 
+RUN add-apt-repository “deb http://security.ubuntu.com/ubuntu xenial-security main”
 RUN apt-get update && apt-get install -y --allow-downgrades --no-install-recommends \ 
     libcudnn8=8.0.0.180-1+cuda10.2 \
     libcudnn8-dev=8.0.0.180-1+cuda10.2
