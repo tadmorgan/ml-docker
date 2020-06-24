@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       libhdf5-dev \
       openmpi-bin \
       wget \
-      python3=3.7.6 \
+      python3 \
       python3-pip \
       python3-venv \
       python3-dev \
