@@ -3,7 +3,7 @@ ARG cudnn_version=8
 #FROM nvidia/cuda:${cuda_version}-cudnn${cudnn_version}-devel
 FROM nvidia/cuda:10.2-base-ubuntu18.04
 # Pin CuDNN 
-RUN add-apt-repository “deb http://security.ubuntu.com/ubuntu xenial-security main”
+
 RUN apt-get update && apt-get install -y --allow-downgrades --no-install-recommends \ 
     libcudnn8=8.0.0.180-1+cuda10.2 \
     libcudnn8-dev=8.0.0.180-1+cuda10.2
@@ -15,6 +15,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Install system packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
+      software-properties-common \
       bzip2 \
       g++ \
       git \
@@ -29,6 +30,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       python3-dev \
       python3-setuptools \
       python3-tk
+
+RUN add-apt-repository “deb http://security.ubuntu.com/ubuntu xenial-security main”
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-utils git curl vim unzip openssh-client wget \
