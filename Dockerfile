@@ -64,7 +64,7 @@ WORKDIR /workspace
 
 RUN pip3 install \
       sklearn_pandas \
-      tensorflow-gpu==1.13.1
+      tensorflow-gpu==1.14
 
 RUN pip3 install \
       wheel \
