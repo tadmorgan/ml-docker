@@ -64,6 +64,7 @@ RUN pip3 install \
       tensorflow-gpu==1.10.1
 
 RUN pip3 install \
+      wheel \
       bcolz \
       h5py \
       matplotlib \
