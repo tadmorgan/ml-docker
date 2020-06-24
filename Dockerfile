@@ -1,14 +1,12 @@
-ARG cuda_version=10.2
-ARG cudnn_version=7
+ARG cuda_version=10.0
+ARG cudnn_version=7.4
 #FROM nvidia/cuda:${cuda_version}-cudnn${cudnn_version}-devel
 #FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04
-FROM nvidia/cuda:10.2-cudnn7-runtime-ubuntu18.04
+#FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
+FROM tensorflow/tensorflow:1.14.0-gpu-py3-jupyter
 # Pin CuDNN 
 
-RUN apt-get update && apt-get install -y --allow-downgrades --no-install-recommends  --allow-change-held-packages\ 
-    libcudnn7=7.6.5.32-1+cuda10.2 \
-    libcudnn7-dev=7.6.5.32-1+cuda10.2
-RUN apt-mark hold libcudnn7 libcudnn7-dev
+RUN apt-get update 
 
 # Supress warnings about missing front-end. As recommended at:
 # http://stackoverflow.com/questions/22466255/is-it-possibe-to-answer-dialog-questions-when-installing-under-docker
@@ -66,12 +64,11 @@ USER $NB_USER
 WORKDIR /workspace
 
 RUN pip3 install \
-      sklearn_pandas \
-      tensorflow-gpu==1.14
+      sklearn_pandas 
 
 RUN pip3 install \
       wheel \
-      bcolz \
+      bcolz \RUN apt-mark hold libcudnn7 libcudnn7-dev
       h5py \
       matplotlib \
       mkl \
