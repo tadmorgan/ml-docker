@@ -1,12 +1,12 @@
-ARG cuda_version=9.0
-ARG cudnn_version=7
+ARG cuda_version=10.2
+ARG cudnn_version=8
 #FROM nvidia/cuda:${cuda_version}-cudnn${cudnn_version}-devel
-FROM nvidia/cuda:9.0-devel-ubuntu16.04
+FROM nvidia/cuda:10.2-base-ubuntu18.04
 # Pin CuDNN 
 RUN apt-get update && apt-get install -y --allow-downgrades --no-install-recommends \ 
-    libcudnn7=7.0.5.15-1+cuda9.0 \
-    libcudnn7-dev=7.0.5.15-1+cuda9.0
-RUN apt-mark hold libcudnn7 libcudnn7-dev
+    libcudnn8=8.0.0.180-1+cuda10.2 \
+    libcudnn8-dev=8.0.0.180-1+cuda10.2
+RUN apt-mark hold libcudnn8 libcudnn8-dev
 
 # Supress warnings about missing front-end. As recommended at:
 # http://stackoverflow.com/questions/22466255/is-it-possibe-to-answer-dialog-questions-when-installing-under-docker
@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       libhdf5-dev \
       openmpi-bin \
       wget \
-      python3 \
+      python3==3.7.6 \
       python3-pip \
       python3-venv \
       python3-dev \
@@ -57,7 +57,7 @@ WORKDIR /workspace
 
 RUN pip3 install \
       sklearn_pandas \
-      tensorflow-gpu==1.5.0
+      tensorflow-gpu==1.10.1
 
 RUN pip3 install \
       bcolz \
@@ -76,7 +76,7 @@ RUN pip3 install \
       requests \
       opencv-python \
       theano \
-      keras \
+      keras==2.2.4 \
       kaggle
 
 RUN pip3 install\
