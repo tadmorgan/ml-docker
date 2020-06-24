@@ -15,6 +15,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Install system packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
+      gcc \ 
+      libpq-dev \
       software-properties-common \
       bzip2 \
       g++ \
@@ -29,6 +31,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       python3-venv \
       python3-dev \
       python3-setuptools \
+      python3-wheel \
       python3-tk
 
 RUN add-apt-repository 'deb http://security.ubuntu.com/ubuntu xenial-security main'
