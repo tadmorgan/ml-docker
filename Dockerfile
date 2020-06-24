@@ -64,7 +64,7 @@ WORKDIR /workspace
 
 RUN pip3 install \
       sklearn_pandas \
-      tensorflow-gpu==1.10.1
+      tensorflow-gpu==1.13.1
 
 RUN pip3 install \
       wheel \
@@ -84,7 +84,7 @@ RUN pip3 install \
       requests \
       opencv-python \
       theano \
-      keras==2.2.4 \
+      keras==2.2.5 \
       kaggle
 
 RUN pip3 install\
